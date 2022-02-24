@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // const config = require('default');
-const db = "mongodb://127.0.0.1:27017/tutorial";
+const db = "mongodb://127.0.0.1:27017/movieAlbum";
 
 const connectDB = async () => {
   try {

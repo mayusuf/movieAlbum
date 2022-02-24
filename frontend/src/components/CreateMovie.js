@@ -4,7 +4,7 @@ import '../App.css';
 import axios from 'axios';
 
 
-class CreateBook extends Component {
+class CreateMovie extends Component {
   constructor() {
     super();
     this.state = {
@@ -26,68 +26,70 @@ class CreateBook extends Component {
 
     const data = {
       title: this.state.title,
-      isbn: this.state.isbn,
-      author: this.state.author,
+      actors: this.state.actors,
+      genre: this.state.genre,
+      rating: this.state.rating,
+      director: this.state.director,
       description: this.state.description,
-      published_date: this.state.published_date,
-      publisher: this.state.publisher
+      published_year: this.state.published_year
     };
 
     axios
-      .post('http://localhost:8082/api/books', data)
+      .post('http://localhost:8082/api/movies', data)
       .then(res => {
         this.setState({
           title: '',
-          isbn:'',
-          author:'',
+          actors:'',
+          genre:'',
+          rating:'',
+          director:'',
           description:'',
-          published_date:'',
-          publisher:''
+          published_year:'',
         })
         this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in CreateBook!");
+        console.log("Error in CreateMovie!");
       })
   };
 
   render() {
     return (
-      <div className="CreateBook">
+      <div className="CreateMovie">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/" className="btn btn-outline-warning float-left">
-                  Show BooK List
+                  Show Movie List
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Add Book</h1>
+              <h1 className="display-4 text-center">Add Movie</h1>
               <p className="lead text-center">
-                  Create new book
+                  Create new movie
               </p>
 
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Title of the Book'
+                    placeholder='Title of the Movie'
                     name='title'
                     className='form-control'
                     value={this.state.title}
                     onChange={this.onChange}
                   />
                 </div>
-                <br />
+                {/* <br /> */}
 
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='ISBN'
-                    name='isbn'
+                    placeholder='Actors Name'
+                    name='actors'
                     className='form-control'
-                    value={this.state.isbn}
+                    value={this.state.actors}
                     onChange={this.onChange}
                   />
                 </div>
@@ -95,10 +97,10 @@ class CreateBook extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Author'
-                    name='author'
+                    placeholder='Movie Genre'
+                    name='genre'
                     className='form-control'
-                    value={this.state.author}
+                    value={this.state.genre}
                     onChange={this.onChange}
                   />
                 </div>
@@ -106,31 +108,42 @@ class CreateBook extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Describe this book'
+                    placeholder='Movie rating'
+                    name='rating'
+                    className='form-control'
+                    value={this.state.rating}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Movie director'
+                    name='director'
+                    className='form-control'
+                    value={this.state.director}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Description'
                     name='description'
                     className='form-control'
                     value={this.state.description}
                     onChange={this.onChange}
                   />
                 </div>
-
-                <div className='form-group'>
-                  <input
-                    type='date'
-                    placeholder='published_date'
-                    name='published_date'
-                    className='form-control'
-                    value={this.state.published_date}
-                    onChange={this.onChange}
-                  />
-                </div>
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Publisher of this Book'
-                    name='publisher'
+                    placeholder='Published Year'
+                    name='published_year'
                     className='form-control'
-                    value={this.state.publisher}
+                    value={this.state.published_year}
                     onChange={this.onChange}
                   />
                 </div>
@@ -148,4 +161,4 @@ class CreateBook extends Component {
   }
 }
 
-export default CreateBook;
+export default CreateMovie;

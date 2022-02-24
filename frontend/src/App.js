@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-import CreateBook from './components/CreateBook';
-import ShowBookList from './components/ShowBookList';
-import ShowBookDetails from './components/ShowBookDetails';
-import UpdateBookInfo from './components/UpdateBookInfo';
+import CreateMovie from './components/CreateMovie';
+import ShowMovieList from './components/ShowMovieList';
+import ShowMovieDetails from './components/ShowMovieDetails';
+import UpdateMovieInfo from './components/UpdateMovieInfo';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<ShowBookList />} />
-          <Route path='/create-book' element={<CreateBook />} />
-          <Route path='/edit-book/:id' element={<UpdateBookInfo />} />
-          <Route path='/show-book/:id' element={<ShowBookDetails />} />
+          <Route exact path='/' element={<ShowMovieList />} />
+          <Route path='/create-book' element={<CreateMovie />} />
+          <Route path='/edit-book/:id' element={<UpdateMovieInfo />} />
+          <Route path='/show-movie/:id' element={<ShowMovieDetails />} />
         </Routes>
       </Router>
     );
